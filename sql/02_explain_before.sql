@@ -23,7 +23,7 @@ ANALYZE;
 EXPLAIN (ANALYZE, BUFFERS)
 SELECT id, status, total_amount, created_at
 FROM orders
-WHERE user_id = (SELECT id FROM users ORDER BY id LIMIT 1) AND total_amount > 1500
+WHERE user_id = (SELECT id FROM users ORDER BY id LIMIT 1)
 ORDER BY created_at DESC
 LIMIT 10;
 
