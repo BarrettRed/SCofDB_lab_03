@@ -6,29 +6,12 @@
 -- ============================================
 
 -- Индекс 1
--- TODO:
--- CREATE INDEX ... ON ... USING BTREE (...);
--- Обоснование:
--- - какой запрос ускоряет
--- - почему выбран именно этот тип индекса
+CREATE INDEX idx_orders_user_created ON orders USING BTREE (user_id, created_at DESC);
 
 -- Индекс 2
--- TODO:
--- CREATE INDEX ... ON ... USING ... (...);
--- Обоснование:
--- - какой запрос ускоряет
--- - почему выбран именно этот тип индекса
+CREATE INDEX idx_orders_status_date ON orders USING BTREE (status, created_at);
 
 -- Индекс 3
--- TODO:
--- CREATE INDEX ... ON ... USING ... (...);
--- Обоснование:
--- - какой запрос ускоряет
--- - почему выбран именно этот тип индекса
+CREATE INDEX idx_order_items_order_id ON order_items USING BTREE (order_id);
 
--- (Опционально) Частичный индекс / BRIN / составной индекс
--- TODO
-
--- Не забудьте обновить статистику после создания индексов
--- TODO:
--- ANALYZE;
+ANALYZE;
